@@ -6,8 +6,8 @@ const app = express();
 //const app = require("express")();
 
 //endpoint and takes a callback function
-app.get("/", () => {
-    console.log("Hey")
+app.get("/", (req,res) => {
+    res.send({ message: "This is my response. Hello"});
 });
 
 

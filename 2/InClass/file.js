@@ -11,5 +11,7 @@ const drinking = name => console.log(`${name} is drinking`);
 //doingSomething(running, 'Adrian')
 //doingSomething(drinking, 'Jhon')
 
+doingSomething(() => console.log(`studying`));
 
-
+const result = doingSomething(name => name + " is studying", "Adrian");
+console.log(result);
