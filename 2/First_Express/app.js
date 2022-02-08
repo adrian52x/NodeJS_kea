@@ -5,10 +5,26 @@ const app = express();
 //alternative
 //const app = require("express")();
 
+app.use(express.json());
+
 //endpoint and takes a callback function
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     res.send({ message: "This is my response. Hello"});
 });
+
+
+app.post("/", (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
+
+
+//this is not REST
+//task create a GET route cakked about that sends some info about server
+
+
+//task implement a POST request handler on the endpoint /opinion based on the client data
+//the server sends a response that contains an opinion
 
 
 
