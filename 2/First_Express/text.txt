@@ -1,0 +1,9 @@
+// meta-data
+// dependencies
+// build stepts => scripts
+
+
+// 1 create package.json with "{}"
+// 2 npm install
+// 3 write dependencies + express + version
+// 4 npm install to download node_modules (dont push them to guthub) u can download
