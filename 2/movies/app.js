@@ -26,7 +26,7 @@ app.get('/movies', (req, res) => {
 
 // GET movie by ID
 app.get('/movies/:id', (req, res) => {
-    // find an object from `data` array match by `id`
+    // find an object from `movies` array match by `id`
     let found = movies.find((movie) => {
         return movie.id === parseInt(req.params.id);
     });
@@ -40,10 +40,10 @@ app.get('/movies/:id', (req, res) => {
 
 // POST movie
 app.post('/movie', (req, res) => {
-    // get itemIds from data array
+    // get movieIds from \movies\ array
     let movieIds = movies.map(movie => movie.id);
    
-    // create new id (basically +1 of last item object)
+    // create new id (basically +1 of last movie object)
     let newId = movieIds.length > 0 ? Math.max.apply(Math, movieIds) + 1 : 1;
     
     // create an object of new Movie
@@ -62,7 +62,7 @@ app.post('/movie', (req, res) => {
 
 // DELETE movie by ID
 app.delete('/movie/:id',(req, res) => {
-    // find item from array of data
+    // find movie from array of movies
     let found = movies.find((movie) => {
         return movie.id === parseInt(req.params.id);
     });
