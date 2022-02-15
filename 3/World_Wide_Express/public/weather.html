@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast</title>
+</head>
+<body>
+    <h1>Today's Forecast</h1>
+
+    <p>Enter city name</p>
+    <input id="cityName" type="text" placeholder="City">
+    <button>Submit</button>
+
+    <script>
+
+        let city = document.querySelector("button");
+        city.addEventListener("click", () => {
+        let input = document.querySelector("#cityName").value;
+        
+
+        fetch('http://api.weatherstack.com/current?access_key=361bbf753b816d01b117fffca0e5ed2b&query='+input)
+            .then((Response) => Response.json())
+            .then((weather) => {
+               console.log(weather.location.name);
+               const location = document.createElement("h2")
+               location.innerText = `Location: ${weather.location.name}, Temperature: ${weather.current.temperature} \u00B0C`
+                document.body.appendChild(location);
+        }); 
+
+    });
+
+    </script>
+</body>
+</html>
