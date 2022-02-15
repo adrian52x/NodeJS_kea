@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 
 // GET all movies
 app.get('/movies', (req, res) => {
-    res.status(200).json(movies);
+    //res.status(200).json(movies);
+    res.send({data: movies});
 });
 
 // GET movie by ID
@@ -98,7 +99,7 @@ app.delete('/movie/:id',(req, res) => {
 
 
 
-let PORT = 8080
+let PORT = 8080;
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);

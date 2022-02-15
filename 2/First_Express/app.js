@@ -9,6 +9,13 @@ const app = express();
 app.use(express.json());
 
 
+// Array with movies
+const movies = [
+    { id: 1, title: 'Matrix', type: 'action' },
+    { id: 2, title: 'Silent Hill', type: 'horror' } 
+]
+
+
 //endpoint and takes a callback function
 app.get("/", (req, res) => {
     res.send({ message: "This is my response. Hello"});
@@ -28,12 +35,41 @@ app.get("/about", (req,res) => {
                port: "8080"});
 });
 
-//task implement a POST request handler on the endpoint /opinion based on the client data
-//the server sends a response that contains an opinion
+
+// Querry string
+//http://localhost:8080/libraries?book1=aaaa&book2=bbbbb
+app.get("/libraries", (req,res) => {
+    res.send({});
+});
+
+// PathVariable
+app.get("/aboutclient/:clientName", (req,res) => {
+    res.send({ greeting: `Hello there ${req.params.clientName}`});
+});
 
 
+//GET by id
+app.get("/movies/:id", (req,res) => {
+    const foundMovie = movies.find(movie => movie.id === Number(req.params.id));
+    foundMovie ? res.send({ data: foundMovie }) : res.status(404).send({error: "not found"});
+})
 
+//DELETE by Id
+app.delete("/movies/:id", (req,res) => {
+    const foundMovieIndex = movies.findIndex(movie => movie.id === Number(req.param.id));
 
-app.listen(8080);  // leave at bottom
+    if(foundMovieIndex !== -1){
+        movies.splice(foundMovieIndex, 1);
+        res.send({})
+    } else {
+        res.status(404).send({});
+    }
+})
+
+let PORT = 8080;
+
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
 
 
