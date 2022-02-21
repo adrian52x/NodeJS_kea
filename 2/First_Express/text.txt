@@ -6,4 +6,12 @@
 // 1 create package.json with "{}"
 // 2 npm install
 // 3 write dependencies + express + version
-// 4 npm install to download node_modules (dont push them to guthub) u can download
+// 4 npm install to download node_modules (dont push them to guthub) add them to .gitignore
+
+// V2
+// npm init -y
+// npm install express
+// npm install -g nodemon (install globaly)
+
+
+
