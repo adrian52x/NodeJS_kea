@@ -60,6 +60,20 @@ app.post('/movie', (req, res) => {
     res.status(201).json(newMovie);
 });
 
+// UPDATE
+app.patch("/movies/:id", (req, res) => {
+    const foundMovieIndex = movies.findIndex(movie => movie.id === Number(req.params.id));
+    if (foundMovieIndex !== -1) {
+        const foundMovie = movies[foundMovieIndex];
+        const movieToUpdateWith = { ...foundMovie, ...req.body, id: foundMovie.id };
+        movies[foundMovieIndex] = movieToUpdateWith;
+        res.send({ data: movieToUpdateWith });
+    } else {
+        res.status(404).send({});
+    } 
+});
+
+
 
 // DELETE movie by ID
 app.delete('/movie/:id',(req, res) => {
