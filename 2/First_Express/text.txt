@@ -14,4 +14,11 @@
 // npm install -g nodemon (install globaly)
 
 
+// scripts are just like lifecycles and built stepts in MAven
+// Node = runtime enviroment for JS
+// npm run "script name"
 
+// npm i cross-env
+// npm i --save-dev cross-env
+
+// import export ways in ./2/firs_express

@@ -65,11 +65,29 @@ app.delete("/movies/:id", (req,res) => {
         res.status(404).send({});
     }
 })
+// ------------------------------------------------------
+// 01/03/2022
 
-let PORT = 8080;
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+
+const animalsUtils = require("./animals/animalsUtils.js");
+console.log(animalsUtils);
+
+console.log("Nr of animals ", animalsUtils.calculating());
+console.log("My name is", animalsUtils.myName());
+
+
+const animalsRouter = require("./routers/animalsrouter.js")
+app.use(animalsRouter);
+
+
+
+
+const PORT = process.env.PORT || 9090;
+
+
+const server = app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT} `, server.address().port);
 });
 
 
