@@ -18,7 +18,7 @@ const movies = [
 
 //endpoint and takes a callback function
 app.get("/", (req, res) => {
-    res.send({ message: "This is my response. Hello"});
+    res.send(frontpage);
 });
 
 
@@ -69,7 +69,6 @@ app.delete("/movies/:id", (req,res) => {
 // 01/03/2022
 
 
-
 const animalsUtils = require("./animals/animalsUtils.js");
 console.log(animalsUtils);
 
@@ -80,9 +79,48 @@ console.log("My name is", animalsUtils.myName());
 const animalsRouter = require("./routers/animalsrouter.js")
 app.use(animalsRouter);
 
+// ------------------------------------------------------
+// 08/03/2022
+
+app.use(express.static(__dirname + "/public/"));
+
+const fs = require("fs");
+
+const frontpage = fs.readFileSync("./public/frontpage.html").toString();
+// ------------------------------------------------------
+/* Assignment 
+    use node-fetch
+    create a route with the endpoint /proxy
+    fetch google's homepage
+    use res.text() to parse the response
+    and display it to the client who requests /proxy
+
+    bonus: use aasync/await to make it look nicer
+*/
+
+const fetch = require("node-fetch")
+
+app.get("/proxy", (req,res) => {
+    fetch("https://www.google.com")
+    .then(response => response.text())
+    .then(result => {
+        res.send(result)
+    })
+});
+
+app.get("/proxy2", async (req,res) => {
+    const response = await fetch("https://www.google.com")
+    const website = await response.text();
+    res.send(website);
+
+
+});
 
 
 
+
+
+// ------------------------------------------------------
 const PORT = process.env.PORT || 9090;
 
 

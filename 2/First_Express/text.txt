@@ -22,3 +22,10 @@
 // npm i --save-dev cross-env
 
 // import export ways in ./2/firs_express
+
+// node-fetch in ./2/firs_express/app.js
+
+
+// Initialize Svelt project (not install svelte, its initialize files)
+//  npx degit sveltejs/template svelte-project
+// npm i  (install all dependencies)
