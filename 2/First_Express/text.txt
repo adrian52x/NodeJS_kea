@@ -21,11 +21,31 @@
 // npm i cross-env
 // npm i --save-dev cross-env
 
-// import export ways in ./2/firs_express
+// import export ways in folder "./2/firs_express"
 
-// node-fetch in ./2/firs_express/app.js
+// node-fetch example in folder " ./2/firs_express/app.js "
 
 
 // Initialize Svelt project (not install svelte, its initialize files)
 //  npx degit sveltejs/template svelte-project
 // npm i  (install all dependencies)
+
+
+
+// Middleware_Security Part
+// to use import instead of 'require' add "type": "module", in package.json
+
+// Helmet - Helmet helps you secure your Express apps by setting various HTTP headers
+// npm install helmet --save
+// https://www.npmjs.com/package/helmet
+
+// npm i express-rate-limit   ==> Use to limit repeated requests to public APIs and/or endpoints such as password reset.
+// https://www.npmjs.com/package/express-rate-limit
+
+// Nodemailer  - for emails
+
+// bcrypt - for hashing passwords
+// npm i bcrypt
+
+// Express session 
+// npm i express-session
