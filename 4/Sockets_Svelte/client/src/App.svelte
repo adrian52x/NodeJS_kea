@@ -1,6 +1,6 @@
 <script>
-	import UserRegistration from "./Pages/UserRegistration/UserRegistration.svelte";
-	import Colors from "./Pages/Colors/Colors.svelte";
+	import UserRegistration from "./pages/UserRegistration.svelte";
+	import Colors from "./pages/Colors.svelte";
 	import { Wave } from "svelte-loading-spinners";
 	import { onMount } from "svelte";
 	let username = false;
@@ -8,6 +8,7 @@
 		const response = await fetch("/api/fetchuser");
 		const { data } = await response.json();
 		username = data;
+		console.log(username);
 	});	
 </script>
 

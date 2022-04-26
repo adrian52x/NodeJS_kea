@@ -1,13 +1,17 @@
 <script>
     import io from "socket.io-client";
-
+    let lastPersonToChangeColor;
     const socket = io();
-
+    socket.on("changeColor", ({ data, username }) => {
+        // you shouldn't use document in Svelte or any web framework. Do it the Svelte way. 
+        document.body.style.backgroundColor = data;
+        lastPersonToChangeColor = username;
+    });
+    
     function changeColor(event) {
-        console.log(event.target.value);
-        socket.emit("colorChanged", {data: event.target.value });
+        socket.emit("colorChanged", { data: event.target.value });
     }
-
 </script>
 
-<input type="color" on:change="{changeColor}">
+<div>Last person to change the color: { lastPersonToChangeColor || "Unknown" }</div>
+<input type="color" on:change={changeColor} />
