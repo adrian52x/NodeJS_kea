@@ -10,8 +10,10 @@
 
 // V2
 // npm init -y
-// npm install express
+// npm install express + (mongoose cors body-parser)
 // npm install -g nodemon (install globaly)
+
+// npm install concurrently  (allows to run frontend and backend at the same time in Dev mode)
 
 
 // scripts are just like lifecycles and built stepts in MAven
@@ -49,3 +51,10 @@
 
 // Express session 
 // npm i express-session
+
+//The dotenv package enables loading of a .env file in a Node.js project
+// https://www.mariokandut.com/how-to-set-up-and-test-a-dot-env-file-in-node-js/
+// npm i dotenv
+
+// JWT
+// https://www.freecodecamp.org/news/how-to-authenticate-users-and-implement-cors-in-nodejs-applications/

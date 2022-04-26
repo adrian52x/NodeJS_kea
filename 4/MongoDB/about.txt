@@ -1,0 +1,17 @@
+tables in mongodb = collections
+db.createCollection("<table name>")
+
+Relations
+
+jsonSchema vs ODM
+
+CRUD 
+db.<tableName>.insert({ key: "value" })  / insertOne
+
+db.<tableName>.find()
+db.<tableName>.find({})
+
+db.<tableName>.update({ id: 1 }, { $set:  { wife: {nice: true} }})
+
+db.<tableName>.deleteOne({}) / deleteMany / remove
+
